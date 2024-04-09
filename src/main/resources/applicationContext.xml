@@ -8,60 +8,9 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <context:component-scan base-package="org.example"/>
+
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-
-    <bean id="musicBean"
-          class="org.example.ClassicalMusic"
-    init-method="doMyInit"
-    destroy-method="doMyDestroy"
-    factory-method="getClassicalMusic">
-    </bean>
-
-
-
-<!--    <bean id="musicPlayer"-->
-<!--          class ="org.example.MusicPlayer"-->
-<!--          scope="prototype">-->
-<!--        <property name="music" ref="musicBean"></property>-->
-
-<!--        &lt;!&ndash;Vnedrenie cherez set&ndash;&gt;-->
-<!--        <property name="name" value="some name"/>-->
-<!--        <property name="volume" value="50"></property>-->
-
-
-<!--    <bean id="musicBean1"-->
-<!--          class="org.example.RockMusic">-->
-<!--    </bean>-->
-<!--    <bean id="musicBean2"-->
-<!--          class="org.example.HiphopMusic">-->
-<!--    </bean>-->
-
-<!--    <constructor-arg value="Dimash"/>-->
-
-
-
-
-
-<!--        cherez fail properies-->
-<!--        <property name="name" value="${musicPlayer.name}"/>-->
-<!--        <property name="volume" value="${musicPlayer.volume}"></property>-->
-
-
-
-<!--        dlia raboti s list-->
-<!--        <constructor-arg>-->
-<!--            <list>-->
-<!--                <ref bean="musicBean"/>-->
-<!--                <ref bean="musicBean1"/>-->
-<!--                <ref bean="musicBean2"/>-->
-<!--                &lt;!&ndash; Добавьте ссылки на другие бины Music, если это необходимо &ndash;&gt;-->
-<!--            </list>-->
-<!--        </constructor-arg>-->
-
-
-
-
 
 
 </beans>

@@ -5,36 +5,30 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestSpring {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-       // Music music = context.getBean("musicBean",ClassicalMusic.class);
-
-       // MusicPlayer musicPlayer = new MusicPlayer(music);
-
-        ClassicalMusic classicalMusic = context.getBean("musicBean",ClassicalMusic.class);
-        System.out.println(classicalMusic.getSong());
-
-//        MusicPlayer musicPlayer1 = context.getBean("musicPlayer",MusicPlayer.class);
-//        MusicPlayer musicPlayer2 = context.getBean("musicPlayer",MusicPlayer.class);
-//
-//        boolean comp = musicPlayer1 == musicPlayer2;
-//        System.out.println(comp);
-//        System.out.println(musicPlayer1);
-//        System.out.println(musicPlayer2);
-//
-//
-//        musicPlayer1.setVolume(10);
-//        System.out.println(musicPlayer2.getVolume());
-//        System.out.println(musicPlayer1.getVolume());
 
 
 
+//        Music rockMusic = context.getBean("rockMusic",Music.class);
+//        Music classikMusic = context.getBean("classicalMusic",Music.class);
+//        MusicPlayer musicPlayer = new MusicPlayer(rockMusic);
+//        MusicPlayer musicPlayer1 = new MusicPlayer(classikMusic);
 //        musicPlayer.playMusic();
-//        System.out.println(musicPlayer.getName());
-//        System.out.println(musicPlayer.getVolume());
+//        musicPlayer1.playMusic();
 
+//        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//        musicPlayer.playMusic();
 
+//        Computer computer = context.getBean("computer",Computer.class);
+//        System.out.println(computer);
 
+        MusicPlayer musicPlayer = context.getBean("musicPlayer",MusicPlayer.class);
+        System.out.println(musicPlayer.getVolume());
+        System.out.println(musicPlayer.getName());
 
-//    musicPlayer.playMusicList();
+        ClassicalMusic classicalMusic = context.getBean("classicalMusic",ClassicalMusic.class);
+        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic",ClassicalMusic.class);
+        System.out.println(classicalMusic == classicalMusic1);
+
 
 
         context.close();

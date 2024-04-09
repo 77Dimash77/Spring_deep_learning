@@ -1,57 +1,46 @@
 package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MusicPlayer {
-    private List<Music> musicList = new ArrayList<>();
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int volume;
 
 
     private Music music;
-    private String name;
-    private int volume;
+    private Music music1;
 
-    //Ioc
-
-    public MusicPlayer(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public MusicPlayer(Music music) {
+    @Autowired
+    public MusicPlayer(@Qualifier("classicalMusic")Music music,  @Qualifier("rockMusic")Music music1) {
         this.music = music;
+        this.music1 = music1;
     }
 
-    public MusicPlayer() {
-    }
+//    public MusicPlayer(Music music) {
+//        this.music = music;
+//    }
 
-    public void playMusicList() {
-        for (Music music : musicList) {
-            System.out.println("Playing: " + music.getSong());
-        }
-    }
-    public void playMusic(){
-        System.out.println("playing" + music.getSong());
-    }
+    public String playMusic(){
+        return "playing" + music.getSong() + " play " + music1.getSong();
 
-    public void setMusic(Music music) {
-        this.music = music;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getVolume() {
         return volume;
     }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
 }
+
+
