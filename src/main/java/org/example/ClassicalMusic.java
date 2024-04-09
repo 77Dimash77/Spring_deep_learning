@@ -6,17 +6,17 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-@Component
-@Scope("singleton")
+//@Component
+//@Scope("singleton")
 public class ClassicalMusic implements Music{
 
 
-    private ClassicalMusic(){
-
-    }
-    public static ClassicalMusic getClassicalMusic(){
-        return new ClassicalMusic();
-    }
+//    private ClassicalMusic(){
+//
+//    }
+//    public static ClassicalMusic getClassicalMusic(){
+//        return new ClassicalMusic();
+//    }
 
 @PostConstruct
     public void doMyInit(){
